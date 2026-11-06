@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+  {{ partial "head.html" . }}
+  {{ partial "head_custom.html" . }}
+</head>
+<body class="page-work-detail">
+  <a class="work-detail__skip" href="#main-content">본문으로 이동</a>
+  <header class="work-detail__header">
+    <div class="work-detail__header-inner">
+      <a class="work-detail__brand" href="{{ .Site.Home.RelPermalink }}">BYJ_DEV <span>| PORTFOLIO</span></a>
+      <a class="work-detail__back" href="{{ .Site.Home.RelPermalink }}#client-and-work-section">← 작업물 목록</a>
+    </div>
+  </header>
+  <main id="main-content" class="work-detail" tabindex="-1">
+    <article aria-labelledby="work-title">
+      <header class="work-detail__intro">
+        <p class="work-detail__eyebrow">웹 개발 · 작업물</p>
+        <h1 id="work-title">{{ .Title }}</h1>
+        <p class="work-detail__summary">{{ .Description }}</p>
+        <dl class="work-detail__meta">
+          <div><dt>제작 시기</dt><dd>{{ .Params.period | default "추후 작성" }}</dd></div>
+          <div><dt>진행 상태</dt><dd>{{ .Params.project_status | default "추후 작성" }}</dd></div>
+        </dl>
+      </header>
+      <figure class="work-detail__cover">
+        {{ partial "responsive-image.html" (dict "src" .Params.cover "alt" .Params.cover_alt "sizes" "(min-width: 1072px) 1024px, calc(100vw - 48px)" "page" .) }}
+        <figcaption>The Long Road 실제 실행 화면</figcaption>
+      </figure>
+      <nav class="work-detail__nav" aria-label="작품 상세 목차">
+        <a href="#demo">시연 영상</a>
+        <a href="#gallery">장면 갤러리</a>
+        <a href="#process">제작 이야기</a>
+      </nav>
+      <section id="demo" class="work-detail__section" aria-labelledby="demo-title">
+        <h2 id="demo-title">시연 영상</h2>
+        {{ with .Params.demo_video }}
+          <video controls playsinline muted preload="metadata" aria-label="The Long Road 무음 시연 영상">
+            <source src="{{ . | relURL }}">
+            영상 재생을 지원하지 않는 브라우저입니다. <a href="{{ . | relURL }}">영상 다운로드</a>
+          </video>
+        {{ else }}
+          <div class="work-detail__placeholder work-detail__video-placeholder">
+            <span>시연 영상 준비 중</span>
+            <p>실제 실행 장면을 영상으로 소개할 예정입니다.</p>
+          </div>
+        {{ end }}
+      </section>
+      <section id="gallery" class="work-detail__section" aria-labelledby="gallery-title">
+        <h2 id="gallery-title">장면 갤러리</h2>
+        <div class="work-detail__gallery">
+          {{ range .Params.gallery }}
+            <figure>
+              {{ partial "responsive-image.html" (dict "src" .src "alt" .alt "sizes" "(min-width: 768px) 496px, calc(100vw - 48px)" "page" $) }}
+              <figcaption>{{ .caption }}</figcaption>
+            </figure>
+          {{ else }}
+            <div class="work-detail__placeholder"><span>추가 장면 준비 중</span><p>풍경과 장면 전환을 사진으로 소개할 예정입니다.</p></div>
+          {{ end }}
+        </div>
+      </section>
+      <section id="process" class="work-detail__section work-detail__story" aria-labelledby="process-title">
+        <h2 id="process-title">제작 이야기</h2>
+        {{ .Content }}
+      </section>
+      <a class="work-detail__return" href="{{ .Site.Home.RelPermalink }}#client-and-work-section">← 작업물 목록으로 돌아가기</a>
+    </article>
+  </main>
+  <footer class="work-detail__footer">
+    <p>{{ .Site.Params.footer.notice | safeHTML }}</p>
+    <div class="work-detail__theme">
+      {{ .Scratch.Set "selectorPlacement" "work-detail" }}
+      {{ .Scratch.Set "dropdownDirection" "up" }}
+      {{ partial "selector-theme.html" . }}
+    </div>
+  </footer>
+  {{ $bootstrap := resources.Get "js/vendor/bootstrap.bundle.min.js" | fingerprint }}
+  <script defer src="{{ $bootstrap.RelPermalink }}"></script>
+</body>
+</html>
