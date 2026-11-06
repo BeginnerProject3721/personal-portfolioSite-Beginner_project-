@@ -1,5 +1,5 @@
 baseURL = "https://adritian-demo.vercel.app/"
-title = "Adritian Demo"
+title = "BYJ_DEV | PORTFOLIO"
 locale = "en"
 
 # Required for the theme's layouts/robots.txt to be rendered — Hugo ignores
@@ -69,16 +69,16 @@ target = "assets/css/bootstrap-print.css"
 
 
 [params]
-title = 'Adritian Demo'
-description = 'Adritian Demo — a high performance Hugo theme'
+title = 'BYJ_DEV | PORTFOLIO'
+description = '게임 개발을 중심으로, AI와 함께 게임, 웹, 앱을 개발하는 BYJ_DEV의 포트폴리오입니다.'
 images = ['/img/og-img.png']
 themeColor = '#478079'
 
 # Header logo text. Optional — falls back to .Site.Title when unset.
 # Useful when your SEO/page `title` (long, keyword-rich) should differ
 # from the short brand text shown in the header. See PR #561.
-logo_text1 = 'Adritian'
-logo_text2 = 'Theme'
+logo_text1 = 'BYJ_DEV'
+logo_text2 = '| PORTFOLIO'
 
 # Color scheme: default | ocean | forest | rose | slate | midnight | warm
 colorScheme = 'default'
@@ -93,17 +93,17 @@ footer = false
 header = false
 
 [params.seo]
-siteName = 'Adritian'
-siteDescription = 'Adritian Demo — a high performance Hugo theme'
+siteName = 'BYJ_DEV | PORTFOLIO'
+siteDescription = '게임 개발을 중심으로, AI와 함께 게임, 웹, 앱을 개발하는 BYJ_DEV의 포트폴리오입니다.'
 siteImage = '/img/og-img.png'
 
 [params.social]
 twitter = 'zetxek'
 
 [params.seo.person]
-name = 'Adrián Moreno Peña'
-url = 'https://www.adrianmoreno.info'
-sameAs = ['https://github.com/zetxek']
+name = 'BYJ_DEV'
+url = 'https://beginnerproject3721.github.io/personal-portfolioSite-Beginner_project-/'
+sameAs = ['https://github.com/BeginnerProject3721/personal-portfolioSite-Beginner_project-']
 sections = [
   "showcase",
   "about",

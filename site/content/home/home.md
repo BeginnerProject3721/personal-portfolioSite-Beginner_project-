@@ -6,7 +6,7 @@ draft = false
 
 
 {{< showcase-section
-    title="BYJ"
+    title="BYJ_DEV"
     subtitle="AI와 함께 게임, 웹, 앱을 개발하고 있습니다."
     buttonText="Email"
     description="게임 개발을 중심으로, 다양한 아이디어를 웹과 앱으로도 구현하고 있습니다."
