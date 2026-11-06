@@ -83,3 +83,20 @@ body {
 .home .rad-showcase h2.display-5 > span {
   font: inherit;
 }
+
+/* Keep the text-only introduction comfortable to read on wide screens. */
+.home #about {
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-block: 5rem 2.5rem;
+  scroll-margin-top: 6rem;
+}
+
+.home #about h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.home #about p {
+  margin-bottom: 0;
+}
