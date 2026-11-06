@@ -1,0 +1,15 @@
+{
+  "config": "hugo.toml,pages.json",
+  "theme": null,
+  "sample": ".",
+  "version": "0.167.0",
+  "slug": "adritian-free-hugo-theme",
+  "npm": [
+    "."
+  ],
+  "asset_build": [],
+  "generator": "3.1",
+  "repo": "https://github.com/BeginnerProject3721/personal-portfolioSite-Beginner_project-.git",
+  "baseURL": "https://beginnerproject3721.github.io/personal-portfolioSite-Beginner_project-/",
+  "audited": false
+}

@@ -1,0 +1,22 @@
+{
+  "baseURL": "https://beginnerproject3721.github.io/personal-portfolioSite-Beginner_project-/",
+  "enableGitInfo": false,
+  "themesDir": "themes",
+  "timeout": "120s",
+  "security": {
+    "exec": {
+      "allow": [
+        "^(dart-)?sass$",
+        "^go$",
+        "^git$",
+        "^node$",
+        "^postcss$",
+        "^tailwindcss$",
+        "^asciidoctor$"
+      ]
+    },
+    "allowContent": [
+      "^text/"
+    ]
+  }
+}
