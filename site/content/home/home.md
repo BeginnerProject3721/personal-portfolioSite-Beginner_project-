@@ -31,4 +31,9 @@ AI를 개발의 협력 도구로 활용하면서, 프로젝트의 전체 구조�
 {{< /text-section >}}
 
 {{< text-section title="작업물" sectionId="client-and-work-section" padding="false" >}}
+
+### The Long Road
+
+스크롤에 따라 다양한 풍경과 이야기가 펼쳐지는 인터랙티브 웹사이트입니다.
+
 {{< /text-section >}}
