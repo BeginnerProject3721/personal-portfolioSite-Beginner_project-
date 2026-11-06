@@ -32,10 +32,18 @@ AI를 개발의 협력 도구로 활용하면서, 프로젝트의 전체 구조�
 
 {{< text-section title="작업물" sectionId="client-and-work-section" padding="false" >}}
 
-### The Long Road
+<div class="work-grid">
+<article class="work-card" tabindex="0" aria-labelledby="long-road-title" aria-describedby="long-road-description">
+<div class="work-card__visual">
+{{< responsive-image src="images/projects/the-long-road-preview.webp" alt="초원의 길을 걷는 인물과 주변 풍경을 담은 The Long Road 실행 화면" class="work-card__image" sizes="(max-width: 368px) calc(100vw - 48px), 320px" >}}
+<div class="work-card__overlay">
+<p id="long-road-description">스크롤에 따라 다양한 풍경과 이야기가 펼쳐지는 인터랙티브 웹사이트입니다.</p>
+<button class="work-card__button" type="button" disabled title="상세 페이지 준비 중" aria-label="The Long Road 자세히 보기 — 상세 페이지 준비 중">자세히 보기 <span aria-hidden="true">↗</span></button>
+</div>
+</div>
+<h3 id="long-road-title" class="work-card__title">The Long Road</h3>
+</article>
+</div>
 
-스크롤에 따라 다양한 풍경과 이야기가 펼쳐지는 인터랙티브 웹사이트입니다.
-
-{{< responsive-image src="images/projects/the-long-road-preview.webp" alt="The Long Road의 시작 장면: 해가 떠오르는 초원의 길을 걷는 인물과 멀리 보이는 성, 나무 풍경" class="work-preview" sizes="(min-width: 1008px) 960px, calc(100vw - 48px)" >}}
 
 {{< /text-section >}}
