@@ -30,5 +30,5 @@ AI를 개발의 협력 도구로 활용하면서, 프로젝트의 전체 구조�
 
 {{< /text-section >}}
 
-{{< client-and-work-section
-    title="A selection of my work" >}}
+{{< text-section title="작업물" sectionId="client-and-work-section" padding="false" >}}
+{{< /text-section >}}
