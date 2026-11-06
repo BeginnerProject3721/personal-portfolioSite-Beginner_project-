@@ -36,4 +36,6 @@ AI를 개발의 협력 도구로 활용하면서, 프로젝트의 전체 구조�
 
 스크롤에 따라 다양한 풍경과 이야기가 펼쳐지는 인터랙티브 웹사이트입니다.
 
+{{< responsive-image src="images/projects/the-long-road-preview.webp" alt="The Long Road의 시작 장면: 해가 떠오르는 초원의 길을 걷는 인물과 멀리 보이는 성, 나무 풍경" class="work-preview" sizes="(min-width: 1008px) 960px, calc(100vw - 48px)" >}}
+
 {{< /text-section >}}

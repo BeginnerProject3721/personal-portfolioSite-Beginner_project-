@@ -100,3 +100,12 @@ body {
 .home #about p {
   margin-bottom: 0;
 }
+
+#client-and-work-section img.work-preview {
+  display: block;
+  width: 100%;
+  max-width: 60rem;
+  height: auto;
+  margin-top: 1.5rem;
+  border-radius: 0.75rem;
+}
