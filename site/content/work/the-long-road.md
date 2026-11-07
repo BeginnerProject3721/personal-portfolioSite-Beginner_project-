@@ -86,7 +86,33 @@ float fbm1(float x) {
 
 ### 사용 도구와 선택 이유
 
-내용을 준비하고 있습니다.
+<details class="work-process-detail">
+<summary>Claude — 기획을 코드로 구현하는 협업 도구</summary>
+
+직접 기획한 장면과 기능을 코드로 구현하고, 결과를 보며 수정하는 과정에 활용했습니다. 작업을 단계별로 나누어 요청하고, 코드의 구조나 구현 방법에 관해 질문하면서 개발을 이어갈 수 있다는 점에서 선택했습니다.
+
+</details>
+
+<details class="work-process-detail">
+<summary>Three.js — 브라우저에서 표현하는 3D 장면</summary>
+
+장면과 카메라를 구성하고 화면을 렌더링하는 데 사용했습니다. 별도의 프로그램 설치 없이 웹 브라우저에서 입체적인 공간과 움직임을 보여주려는 작업 방향에 적합했습니다.
+
+</details>
+
+<details class="work-process-detail">
+<summary>GLSL 셰이더 — 코드로 만드는 풍경과 효과</summary>
+
+산·사구·구름 등의 풍경과 빛, 하늘이 갈라지는 효과를 표현하는 데 사용했습니다. 이미지 파일을 배치하는 대신 수학적 함수와 계산으로 장면을 만들고, 스크롤 진행에 따라 색감과 형태를 변화시키기 위해 활용했습니다.
+
+</details>
+
+<details class="work-process-detail">
+<summary>GSAP·Lenis — 스크롤과 장면의 연결</summary>
+
+스크롤 위치에 따라 장면과 연출을 제어하고, 화면 이동을 부드럽게 만드는 데 사용했습니다. 스크롤이 곧 여정의 진행으로 느껴지도록 하려면 입력과 장면 변화가 자연스럽게 이어지는 것이 중요했기 때문입니다.
+
+</details>
 
 ### 결과와 배운 점
 
