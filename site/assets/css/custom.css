@@ -431,13 +431,15 @@ body {
 .work-detail video { aspect-ratio: 16 / 9; background: #111; }
 .work-detail__gallery img { aspect-ratio: 16 / 9; object-fit: cover; }
 
-/* Keep the making-of readable; technical notes expand without JavaScript. */
+/* Keep major topics distinct from expandable process subsections. */
 .work-detail__story > h3 {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
+  margin: clamp(3rem, 6vw, 4rem) 0 1.5rem;
+  padding-top: 2rem;
   border-top: 1px solid rgba(127, 127, 127, 0.25);
-  font-size: 1.25rem;
-  font-weight: 650;
+  font-size: clamp(1.5rem, 1.25rem + 0.6vw, 1.75rem);
+  font-weight: 750;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
   scroll-margin-top: 7rem;
 }
 .work-detail__story > h3:first-of-type {
@@ -446,7 +448,7 @@ body {
   border: 0;
 }
 .work-detail__story h4 {
-  margin: 1.75rem 0 0.75rem;
+  margin: 2rem 0 0.75rem;
   font-weight: 600;
   font-family: inherit;
   font-size: 1rem;
@@ -454,6 +456,21 @@ body {
   color: inherit;
 }
 .work-detail__story p { opacity: 0.9; }
+.work-detail__story .highlight {
+  max-width: 100%;
+  margin-block: 1.25rem;
+}
+.work-detail__story pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1.25rem;
+  border: 1px solid rgba(127, 127, 127, 0.25);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.work-detail__story pre code { white-space: pre; }
+
 .work-process-detail {
   margin-top: 1rem;
   border-block: 1px solid rgba(127, 127, 127, 0.25);
@@ -489,17 +506,3 @@ body {
   outline-offset: 3px;
 }
 .work-process-detail > p { margin: 0 0 1.25rem; }
-.work-process-detail .highlight {
-  max-width: 100%;
-  margin-block: 1.25rem;
-}
-.work-process-detail pre {
-  max-width: 100%;
-  overflow-x: auto;
-  padding: 1.25rem;
-  border: 1px solid rgba(127, 127, 127, 0.25);
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-  line-height: 1.7;
-}
-.work-process-detail pre code { white-space: pre; }
