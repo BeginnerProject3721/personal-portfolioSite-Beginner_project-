@@ -136,3 +136,44 @@ python3 .github/pages_build.py --build
 소개 영역의 `about`, 작업물 영역의 `client-and-work-section`은 메뉴와 돌아가기 링크가 사용하는 식별자입니다. 변경할 경우 연결된 링크도 함께 맞춰야 합니다. 새 내부 페이지 링크는 메인 카드의 기존 `relref` 방식을 참고해 GitHub Pages의 프로젝트 경로에서도 연결되도록 작성합니다.
 
 수정 후에는 앞의 로컬 미리보기에서 메인과 상세 페이지를 확인합니다. 스타일 변경은 PC·모바일과 라이트·다크 모드에서 확인하고, 카드·메뉴·펼쳐보기 변경은 키보드와 동작 줄이기 설정도 확인합니다. 빌드 결과인 `public/` 파일을 직접 수정하지 않습니다.
+
+## GitHub Actions 배포와 확인
+
+### 배포 설정
+
+이 저장소는 `main` 브랜치에 푸시하면 [Deploy Hugo to GitHub Pages](.github/workflows/hugo-pages.yml) 워크플로가 실행됩니다. `build` 작업에서 의존성을 설치하고 사이트를 빌드한 뒤, 생성된 `public/`을 배포 자료로 전달합니다. `deploy` 작업은 이 자료를 GitHub Pages에 게시합니다.
+
+저장소의 **Settings → Pages → Build and deployment → Source**는 **GitHub Actions**로 설정합니다. 기존 워크플로가 있으므로 별도의 배포 워크플로를 새로 만들 필요는 없습니다. 설정 방법은 [GitHub 공식 Pages 안내](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)를 참고할 수 있습니다.
+
+### 수정 내용을 배포하는 순서
+
+1. 로컬 미리보기와 배포용 빌드로 변경 내용을 확인합니다.
+2. GitHub Desktop에서 현재 브랜치가 `main`인지 확인하고, 변경 파일을 검토한 뒤 작업 단위로 커밋합니다. `public/` 등 생성 결과물은 커밋하지 않습니다.
+3. **Push origin**으로 커밋을 GitHub에 올립니다. 여러 커밋을 만든 뒤 한 번에 푸시해도 됩니다. 로컬 커밋만으로는 공개 사이트가 갱신되지 않습니다.
+4. [Actions의 배포 워크플로](https://github.com/BeginnerProject3721/personal-portfolioSite-Beginner_project-/actions/workflows/hugo-pages.yml)를 열고, 방금 푸시한 `main`의 최신 커밋과 실행 기록의 커밋이 같은지 확인합니다.
+5. 해당 실행에서 **`build`와 `deploy`가 모두 성공**했는지 확인합니다. 이전 커밋의 성공이나 빌드만의 성공을 최신 배포 완료로 판단하지 않습니다.
+6. 실행 결과에 표시된 배포 주소 또는 Settings → Pages의 사이트 주소를 열어 실제 변경 사항을 확인합니다.
+
+### 공개 화면 확인
+
+- [메인 페이지](https://beginnerproject3721.github.io/personal-portfolioSite-Beginner_project-/)에서 수정한 문장·메뉴·작업물 카드가 반영됐는지 확인합니다.
+- [The Long Road 상세 페이지](https://beginnerproject3721.github.io/personal-portfolioSite-Beginner_project-/work/the-long-road/)를 주소로 직접 열고 새로고침해도 표시되는지 확인합니다.
+- 사진 표시, 영상 재생, 자세히 보기, 작업물 목록으로 돌아가기와 주요 메뉴를 확인합니다.
+- PC와 모바일 너비, 라이트·다크 모드에서 화면을 확인합니다. 로그아웃 상태나 시크릿 창에서도 공개 페이지에 접근할 수 있는지 확인합니다.
+
+제출 시에는 최종 `main` 커밋의 전체 SHA·커밋 링크, 그 커밋을 배포한 Actions 실행 링크, 확인 시점과 공개 사이트 주소를 서로 맞춰 기록합니다. 이전 배포 화면과 다른 커밋의 기록을 섞지 않습니다.
+
+### 실패하거나 이전 화면이 보일 때
+
+| 상황 | 확인 순서 |
+| --- | --- |
+| 푸시 후 새 실행이 없음 | GitHub의 `main`에 커밋이 올라왔는지, 해당 브랜치에 `.github/workflows/hugo-pages.yml`이 있는지 확인 |
+| `build` 실패 | 실패한 실행에서 `build`를 열고 빨간 표시가 있는 단계의 오류 메시지 확인. 의존성·Hugo 빌드·Pages 설정 중 어느 단계인지 구분 |
+| `Get Pages site failed` 또는 Pages 관련 `Not Found` | Settings → Pages에서 Pages 사용 가능 여부와 Source가 GitHub Actions인지 확인 |
+| `deploy` 실패 또는 건너뜀 | 먼저 `build` 성공 여부를 확인하고, 배포 단계 오류에서 Pages 권한·환경 설정 관련 메시지 확인 |
+| 성공했는데 이전 화면이 보임 | 실행 기록과 원격 `main`의 커밋을 비교한 뒤, 정확한 공개 주소에서 새로고침하거나 시크릿 창으로 확인 |
+| 상세 페이지·이미지·영상이 404 | 프로젝트 경로가 포함된 주소인지, 해당 파일이 커밋·푸시됐는지, 파일명 대소문자가 일치하는지 확인 |
+
+설정이나 일시적인 오류를 해결한 뒤 같은 커밋을 다시 배포하려면 해당 실행의 **Re-run jobs**를 사용할 수 있습니다. 파일을 수정했다면 먼저 새 커밋을 푸시해야 합니다. 재실행은 원래 실행의 커밋을 대상으로 하므로 로컬의 미푸시 수정을 반영하지 않습니다. [GitHub 공식 재실행 안내](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs)
+
+초기 테마 준비 기록은 [기존 배포 준비 문서](docs/deployment/SETUP.md)에 보존되어 있습니다. 현재 실행·수정·배포 절차는 이 README를 기준으로 합니다.
