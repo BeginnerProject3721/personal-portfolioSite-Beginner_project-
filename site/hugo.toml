@@ -202,24 +202,19 @@ URL = "/#client-and-work-section"
 weight = 3
 
 [[languages.en.menus.footer]]
-name = "Home"
+name = "홈"
 URL = "/"
 weight = 1
 
 [[languages.en.menus.footer]]
-name = "About"
-URL = "#about"
+name = "소개"
+URL = "/#about"
 weight = 2
 
 [[languages.en.menus.footer]]
-name = "Portfolio"
-URL = "#portfolio"
+name = "작업물"
+URL = "/#client-and-work-section"
 weight = 3
-
-[[languages.en.menus.footer]]
-name = "Contact"
-URL = "#contact"
-weight = 4
 
 
 [languages.es]

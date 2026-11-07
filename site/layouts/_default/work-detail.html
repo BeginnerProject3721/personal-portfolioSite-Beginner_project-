@@ -52,14 +52,7 @@
       <a class="work-detail__return" href="{{ .Site.Home.RelPermalink }}#client-and-work-section">← 작업물 목록으로 돌아가기</a>
     </article>
   </main>
-  <footer class="work-detail__footer">
-    <p>{{ .Site.Params.footer.notice | safeHTML }}</p>
-    <div class="work-detail__theme">
-      {{ .Scratch.Set "selectorPlacement" "work-detail" }}
-      {{ .Scratch.Set "dropdownDirection" "up" }}
-      {{ partial "selector-theme.html" . }}
-    </div>
-  </footer>
+  {{ partial "footer.html" . }}
   {{ partial "base-foot.html" . }}
 </body>
 </html>
