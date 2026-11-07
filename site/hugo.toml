@@ -187,35 +187,19 @@ notice = '© Adritian. Free Hugo theme by Adrián Moreno Peña.'
 
 [languages.en.menus]
 [[languages.en.menus.header]]
-name = "Home"
+name = "홈"
 URL = "/"
 weight = 1
+
 [[languages.en.menus.header]]
-name = 'About'
-URL = '#about'
+name = "소개"
+URL = "/#about"
 weight = 2
+
 [[languages.en.menus.header]]
-name = 'Skills'
-URL = '/skills'
+name = "작업물"
+URL = "/#client-and-work-section"
 weight = 3
-[[languages.en.menus.header]]
-name = 'Portfolio'
-URL = '#client-and-work-section'
-weight = 4
-#  [[languages.en.menus.header]]
-#  name = "Experience"
-#  URL = "#experience"
-#  weight = 4
-
-[[languages.en.menus.header]]
-name = "Showcase"
-URL = "/showcase"
-weight = 5
-
-[[languages.en.menus.header]]
-name = "How to"
-URL = "/blog"
-weight = 6
 
 [[languages.en.menus.header]]
 pre = "email"
@@ -597,7 +581,7 @@ showJobCard = true # Set to false to hide the job card
 
 # Navbar overflow handling - options: "dropdown" | "footer" | "none"
 [params.navbarOverflow]
-mode = "dropdown" # "dropdown" moves items to More dropdown, "footer" moves to footer, "none" disables
+mode = "none" # Keep the simplified navigation visible without a More dropdown
 
 
 # Performance optimizations
