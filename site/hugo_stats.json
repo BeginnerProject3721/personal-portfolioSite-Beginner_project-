@@ -63,7 +63,8 @@
       "title",
       "tr",
       "ul",
-      "use"
+      "use",
+      "video"
     ],
     "classes": [
       "about-me",
@@ -554,24 +555,15 @@
       "work-card__visual",
       "work-detail",
       "work-detail__back",
-      "work-detail__brand",
-      "work-detail__cover",
-      "work-detail__eyebrow",
       "work-detail__footer",
       "work-detail__gallery",
-      "work-detail__header",
-      "work-detail__header-inner",
       "work-detail__intro",
       "work-detail__meta",
-      "work-detail__nav",
-      "work-detail__placeholder",
       "work-detail__return",
       "work-detail__section",
-      "work-detail__skip",
       "work-detail__story",
       "work-detail__summary",
       "work-detail__theme",
-      "work-detail__video-placeholder",
       "work-grid"
     ],
     "ids": [
