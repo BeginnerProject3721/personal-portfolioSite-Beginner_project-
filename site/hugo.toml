@@ -90,7 +90,7 @@ enable = true
 # Color scheme selector visibility — set to true to hide in that location
 [params.colorSchemeSwitcher.selector.disable]
 footer = false
-header = false
+header = true
 
 [params.seo]
 siteName = 'BYJ_DEV | PORTFOLIO'
@@ -171,8 +171,8 @@ enable = true
 # Language selector visibility — set to true to hide in that location
 [params.languages.selector.disable]
 footer = false
-header = false
-mobileHeader = false
+header = true
+mobileHeader = true
 
 [languages]
 [languages.en]
@@ -200,18 +200,6 @@ weight = 2
 name = "작업물"
 URL = "/#client-and-work-section"
 weight = 3
-
-[[languages.en.menus.header]]
-pre = "email"
-name = "email"
-URL = "#contact"
-weight = 7
-
-[[languages.en.menus.header]]
-pre = "search"
-name = "Search"
-URL = "/search"
-weight = 8
 
 [[languages.en.menus.footer]]
 name = "Home"

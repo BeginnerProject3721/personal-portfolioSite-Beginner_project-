@@ -18,7 +18,7 @@
   <div class="container">
     <nav class="navbar bd-navbar navbar-expand-lg navbar-light p-0" aria-label='{{ i18n "primary_navigation" }}'>
       <div class="container-fluid">
-        <a class="navbar-brand mx-auto" href="{{ .Site.BaseURL | relLangURL }}">
+        <a class="navbar-brand me-auto" href="{{ .Site.BaseURL | relLangURL }}">
             {{ $logoText1 := .Site.Params.logo_text1 | default .Site.Title }}
             {{ if .Site.Params.logo }}
             <img

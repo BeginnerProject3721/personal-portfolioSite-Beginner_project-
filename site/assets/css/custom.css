@@ -506,3 +506,33 @@ body {
   outline-offset: 3px;
 }
 .work-process-detail > p { margin: 0 0 1.25rem; }
+
+/* Compact primary navigation, shared by home and project pages. */
+#header .navbar-nav { gap: 0.5rem; }
+#header .navbar-nav > .nav-item { width: auto; }
+#header .navbar-nav > .nav-item > .nav-link { padding-inline: 1rem; }
+#header #header-color-selector { width: auto; margin: 0 !important; }
+#header a:focus-visible,
+#header button:focus-visible {
+  outline: 2px solid #478079;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+@media (min-width: 992px) {
+  #header .navbar-collapse { flex-grow: 0; }
+}
+@media (max-width: 991.98px) {
+  #header .navbar-toggler:not(.nav-link) {
+    position: static;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.5rem;
+  }
+  #header .navbar-brand { margin-right: 0.5rem !important; }
+  #header .navbar-collapse { margin-top: 1rem; }
+  #header .navbar-nav { align-items: stretch; gap: 0; }
+  #header .navbar-nav > .nav-item { width: 100%; }
+  #header .navbar-nav > .nav-item > .nav-link { padding: 0.875rem 0.5rem; }
+  #header #header-color-selector { padding: 0.375rem 0.5rem; }
+  #header #header-color-selector > button { min-height: 44px; }
+}
