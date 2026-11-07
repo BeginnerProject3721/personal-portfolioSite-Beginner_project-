@@ -100,3 +100,39 @@ python3 .github/pages_build.py --build
 `public/`, `node_modules/`, `site/hugo_stats.json` 등의 자동 생성 파일은 커밋 대상에서 제외합니다. 화면 확인에는 위의 로컬 미리보기를 사용합니다. 배포용 HTML은 프로젝트 주소를 기준으로 생성되므로 파일을 직접 더블클릭해서 여는 방식으로 확인하지 않습니다.
 
 루트 `package.json`의 `npm run build`와 `npm run serve`는 원본 테마의 `exampleSite`를 대상으로 합니다. 이 포트폴리오의 실행·빌드에는 위에 안내한 명령을 사용합니다.
+
+## 콘텐츠와 디자인 수정 위치
+
+화면에 반영할 내용은 `site/` 아래에서 수정합니다. 아래 링크와 경로는 모두 저장소 루트를 기준으로 합니다.
+
+| 수정할 내용 | 파일 또는 폴더 | 수정 위치와 역할 |
+| --- | --- | --- |
+| 메인의 활동명·한 줄 소개·GitHub 버튼 | [site/content/home/home.md](site/content/home/home.md) | `showcase-section`의 `title`, `subtitle`, `description`, `button_url` |
+| 소개와 학습 목표 | [site/content/home/home.md](site/content/home/home.md) | `소개` 영역의 본문과 `학습 목표` 문단 |
+| 작업물 카드의 제목·사진·짧은 소개·상세 링크 | [site/content/home/home.md](site/content/home/home.md) | `work-grid` 안의 `work-card`, 이미지 `src`·`alt`, `relref` 상세 링크 |
+| 작품 상세 소개·시기·상태·영상·사진 설명 | [site/content/work/the-long-road.md](site/content/work/the-long-road.md) | 문서 상단 `+++` 사이의 `description`, `period`, `project_status`, `demo_video`, `gallery` 등 설정 |
+| 목적·역할·제작 과정·도구·결과·한계 | [site/content/work/the-long-road.md](site/content/work/the-long-road.md) | 상단 설정 아래의 본문과 각 `<details>` 펼쳐보기 내용 |
+| 작품 사진 파일 | [site/assets/images/projects/](site/assets/images/projects/) | 카드 대표 사진과 상세 페이지의 장면 사진 |
+| 시연 영상 파일 | [site/static/media/](site/static/media/) | 현재 사용하는 `the-long-road-demo.webm` |
+| 사이트 제목·상단 로고·상단 및 하단 메뉴 | [site/hugo.toml](site/hugo.toml) | `title`, `params.logo_text1`·`logo_text2`, `languages.ko.menus.header`·`footer` |
+| 글자 크기·색상·간격·카드·모바일 배치 | [site/assets/css/custom.css](site/assets/css/custom.css) | 포트폴리오용 스타일과 라이트·다크, 화면 너비별 스타일 |
+| 상세 페이지의 경로·영상·사진·본문 배치 | [site/layouts/_default/work-detail.html](site/layouts/_default/work-detail.html) | 상세 콘텐츠를 화면에 배치하는 템플릿 |
+| 상단 메뉴와 하단 영역의 구조 | [site/layouts/partials/header.html](site/layouts/partials/header.html), [site/layouts/partials/footer.html](site/layouts/partials/footer.html) | 메뉴를 표시하는 구조와 공통 영역. 메뉴 이름·주소만 바꿀 때는 `site/hugo.toml`을 먼저 수정 |
+| 펼쳐보기 모션 | [site/static/js/rad-animations.js](site/static/js/rad-animations.js) | 펼쳐보기 열기·닫기와 동작 줄이기 대응 |
+| 영역 이동과 고정 상단 메뉴 | [site/static/js/smooth-scroll-init.js](site/static/js/smooth-scroll-init.js), [site/static/js/sticky-header.js](site/static/js/sticky-header.js) | 메뉴 이동, 모바일 메뉴 정리와 고정 헤더 동작 |
+
+### 이미지·영상 경로를 바꿀 때
+
+- 사진은 `site/assets/images/projects/`에 두고, 콘텐츠에서는 `images/projects/파일명.webp`처럼 **`site/assets/`를 제외한 경로**로 참조합니다.
+- 영상은 `site/static/media/`에 두고, `demo_video`에는 `media/파일명.webm`처럼 **`site/static/`을 제외한 경로**를 사용합니다.
+- 메인 카드의 사진 경로와 상세 페이지의 `cover`는 각각 지정되어 있습니다. 대표 사진을 교체할 때 두 위치를 함께 확인하고, `alt`·`cover_alt` 설명도 실제 장면에 맞게 수정합니다.
+- 상세 장면 사진은 각 `[[gallery]]`의 `src`, `alt`, `caption`을 함께 수정합니다. `cover`는 현재 상세 페이지에서 영상 재생 전 보이는 이미지로 사용됩니다.
+- 파일명의 대소문자와 확장자를 정확히 맞춥니다. The Long Road의 원본 실행 HTML·실행 코드·별도 음원 파일은 추가하지 않습니다.
+
+### 문장·메뉴·스타일을 바꿀 때
+
+내용만 바꾸는 경우에는 콘텐츠 파일을 먼저 수정하고, 화면 배치 자체를 바꿀 때 템플릿을 수정합니다. 메인 카드와 상세 페이지의 제목·짧은 소개는 별도 위치에 있으므로 표현이 일치하는지 함께 확인합니다.
+
+소개 영역의 `about`, 작업물 영역의 `client-and-work-section`은 메뉴와 돌아가기 링크가 사용하는 식별자입니다. 변경할 경우 연결된 링크도 함께 맞춰야 합니다. 새 내부 페이지 링크는 메인 카드의 기존 `relref` 방식을 참고해 GitHub Pages의 프로젝트 경로에서도 연결되도록 작성합니다.
+
+수정 후에는 앞의 로컬 미리보기에서 메인과 상세 페이지를 확인합니다. 스타일 변경은 PC·모바일과 라이트·다크 모드에서 확인하고, 카드·메뉴·펼쳐보기 변경은 키보드와 동작 줄이기 설정도 확인합니다. 빌드 결과인 `public/` 파일을 직접 수정하지 않습니다.
