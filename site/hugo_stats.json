@@ -564,7 +564,8 @@
       "work-detail__story",
       "work-detail__summary",
       "work-detail__theme",
-      "work-grid"
+      "work-grid",
+      "work-process-detail"
     ],
     "ids": [
       "1st-job-junior-intern",
