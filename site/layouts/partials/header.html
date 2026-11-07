@@ -87,6 +87,6 @@
   </div>
 </header>
 
-{{- if not .IsHome }} 
+{{- if and (not .IsHome) (ne .Layout "work-detail") }}
   {{ partial "breadcrumb.html" . }} 
 {{- end }}

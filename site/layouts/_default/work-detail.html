@@ -9,7 +9,13 @@
   <main id="main-content" class="work-detail" tabindex="-1">
     <article aria-labelledby="work-title">
       <header class="work-detail__intro">
-        <a class="work-detail__back" href="{{ .Site.Home.RelPermalink }}#client-and-work-section">← 작업물 목록</a>
+        <nav class="work-breadcrumb" aria-label="현재 위치">
+          <ol>
+            <li><a href="{{ .Site.Home.RelPermalink }}">홈</a></li>
+            <li><span class="work-breadcrumb__separator" aria-hidden="true">/</span><a href="{{ .Site.Home.RelPermalink }}#client-and-work-section">작업물</a></li>
+            <li><span class="work-breadcrumb__separator" aria-hidden="true">/</span><span aria-current="page">{{ .Title }}</span></li>
+          </ol>
+        </nav>
         <h1 id="work-title">{{ .Title }}</h1>
         <p class="work-detail__summary">{{ .Description }}</p>
         <dl class="work-detail__meta">

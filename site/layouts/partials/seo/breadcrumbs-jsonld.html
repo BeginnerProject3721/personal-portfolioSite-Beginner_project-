@@ -1,13 +1,21 @@
 {{- if and (not .IsHome) (ne .Kind "404") -}}
 {{- $items := slice -}}
-{{- $items = $items | append (dict "@type" "ListItem" "position" 1 "name" "Home" "item" .Site.Home.Permalink) -}}
+{{- $isWorkDetail := eq .Layout "work-detail" -}}
+{{- $homeLabel := cond $isWorkDetail "홈" "Home" -}}
+{{- $items = $items | append (dict "@type" "ListItem" "position" 1 "name" $homeLabel "item" .Site.Home.Permalink) -}}
 
 {{- $position := 2 -}}
+{{- if $isWorkDetail -}}
+  {{- $items = $items | append (dict "@type" "ListItem" "position" 2 "name" "작업물" "item" (printf "%s#client-and-work-section" .Site.Home.Permalink)) -}}
+  {{- $position = 3 -}}
+{{- else -}}
 {{- range .Ancestors.Reverse -}}
   {{- if not .IsHome -}}
     {{- $items = $items | append (dict "@type" "ListItem" "position" $position "name" (.LinkTitle | default .Title) "item" .Permalink) -}}
     {{- $position = add $position 1 -}}
   {{- end -}}
+{{- end -}}
+
 {{- end -}}
 
 {{- /* Add the current page */ -}}
