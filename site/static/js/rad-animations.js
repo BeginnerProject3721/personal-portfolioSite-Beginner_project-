@@ -1,36 +1,56 @@
-// Respect prefers-reduced-motion
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  // Show all elements immediately without animation
-  Array.from(document.querySelectorAll('.rad-fade-down, .rad-fade-in, .rad-fade-in-long, .rad-scale-down')).forEach(function(el) {
-    el.classList.add('rad-animate');
+// Native details remain usable without JavaScript; enhance only their height change.
+(() => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const finishers = [];
+
+  document.querySelectorAll('.work-process-detail').forEach(details => {
+    const summary = details.querySelector('summary');
+    if (!summary) return;
+    let animation = null;
+    let expanded = details.open;
+
+    const finish = () => {
+      if (animation) {
+        animation.onfinish = null;
+        animation.cancel();
+        animation = null;
+      }
+      details.open = expanded;
+      details.style.overflow = '';
+      details.dataset.expanded = String(expanded);
+      summary.setAttribute('aria-expanded', String(expanded));
+    };
+    finishers.push(finish);
+
+    summary.addEventListener('click', event => {
+      event.preventDefault();
+      const startHeight = details.getBoundingClientRect().height;
+      expanded = !expanded;
+      if (animation) {
+        animation.onfinish = null;
+        animation.cancel();
+      }
+      details.dataset.expanded = String(expanded);
+      summary.setAttribute('aria-expanded', String(expanded));
+      if (reducedMotion.matches || !details.animate) {
+        finish();
+        return;
+      }
+      details.open = true;
+      const style = getComputedStyle(details);
+      const border = parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
+      const endHeight = expanded
+        ? details.getBoundingClientRect().height
+        : summary.getBoundingClientRect().height + border;
+      details.style.overflow = 'hidden';
+      animation = details.animate(
+        [{ height: `${startHeight}px` }, { height: `${endHeight}px` }],
+        { duration: 180, easing: 'cubic-bezier(0.2, 0, 0, 1)' }
+      );
+      animation.onfinish = finish;
+    });
   });
-} else {
-  const sectionIntersectOptions = { rootMargin: '9999px 0px 100px 0px', threshold: 0.05 };
 
-  const onSectionIntersect = (entry) => {
-    let delay = 0;
-    animatedNodes.forEach((node) => {
-      if (node === entry.target || entry.target.contains(node)) {
-        node.style.animationDelay = `${nodeDelayDelta * delay}s`;
-        node.classList.add('rad-animate');
-        delay++;
-      }
-    });
-  };
-
-  const onSectionIntersectChange = (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        onSectionIntersect(entry);
-      }
-    });
-  };
-
-  const animationObserver = new IntersectionObserver(onSectionIntersectChange, sectionIntersectOptions);
-  const animatedNodes = Array.from(document.querySelectorAll('.rad-fade-down, .rad-fade-in, .rad-fade-in-long, .rad-scale-down'));
-  const animatedSections = Array.from(document.querySelectorAll('.rad-animation-group'));
-  const nodeDelayDelta = 0.05;
-
-  animatedNodes.forEach((node) => { node.classList.add('rad-waiting'); });
-  animatedSections.forEach((section) => { animationObserver.observe(section); });
-}
+  reducedMotion.addEventListener('change', () => finishers.forEach(finish => finish()));
+  window.addEventListener('resize', () => finishers.forEach(finish => finish()));
+})();

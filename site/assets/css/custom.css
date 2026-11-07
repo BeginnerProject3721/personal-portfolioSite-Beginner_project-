@@ -160,7 +160,7 @@ body {
   object-fit: cover;
   object-position: 34% center;
   margin: 0;
-  transition: transform 300ms ease;
+  transition: transform 260ms cubic-bezier(0.2, 0, 0, 1);
 }
 
 .work-card__overlay {
@@ -174,7 +174,7 @@ body {
   padding: clamp(1.125rem, 3vw, 1.5rem);
   color: #fff;
   background: linear-gradient(180deg, transparent 10%, rgba(8, 17, 15, 0.88) 65%);
-  transition: opacity 220ms ease;
+  transition: opacity 160ms ease-out;
 }
 
 .home #client-and-work-section .work-card__overlay p {
@@ -655,3 +655,42 @@ body {
 
 /* Keep scrolling text from showing through the navigation in either mode. */
 #header.header { background-color: var(--bs-body-bg, #fff); }
+
+/* Keep content immediately readable; reserve motion for direct interaction. */
+:is(.home, .page-work-detail) :is(.rad-fade-down, .rad-fade-in, .rad-fade-in-long, .rad-scale-down) {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+.work-card__button,
+.home .rad-showcase .btn,
+.work-breadcrumb a,
+.work-detail__return,
+.portfolio-footer .footer_links a {
+  transition: color 140ms ease-out, background-color 140ms ease-out, border-color 140ms ease-out;
+}
+.work-card__button { text-decoration: none; }
+.work-card__button:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+.work-card__overlay > * { transition: transform 180ms ease-out; }
+@media (hover: hover) and (pointer: fine) {
+  .work-card__overlay > * { transform: translateY(5px); }
+  .work-card:is(:hover, :focus-within) .work-card__overlay > * { transform: translateY(0); }
+}
+.work-process-detail summary { transition: color 140ms ease-out, background-color 140ms ease-out; }
+.work-process-detail[data-expanded="false"] > summary::after { content: "+"; }
+.work-process-detail[data-expanded="true"] > summary::after { content: "−"; }
+.work-process-detail > summary::after { transition: color 140ms ease-out; }
+.home #about,
+.home #client-and-work-section { scroll-margin-top: 6rem; }
+#header .collapsing { transition-duration: 160ms; }
+#header.collapsing { transition-duration: 160ms; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  :is(.home, .page-work-detail) *,
+  :is(.home, .page-work-detail) *::before,
+  :is(.home, .page-work-detail) *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .work-card__overlay > * { transform: none; }
+}

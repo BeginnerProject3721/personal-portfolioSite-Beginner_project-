@@ -37,7 +37,7 @@ class StickyHeader {
     // toggle the navbar to hide it
     if (window.innerWidth > 991) {
         if (this.navbar?.classList.contains('show')) {
-            simulateClick(document.querySelector('.navbar-toggler'));
+            window.portfolioCloseMenu?.();
         }
       }
   }
