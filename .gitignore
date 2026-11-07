@@ -40,6 +40,7 @@ exampleSite/static/img/blog/raw/
 !/.github-pages.json
 /public/
 /site/public/
+/site/hugo_stats.json
 /.pages-tools/
 **/node_modules/
 **/resources/_gen/
