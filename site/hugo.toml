@@ -1,4 +1,4 @@
-baseURL = "https://adritian-demo.vercel.app/"
+baseURL = "https://beginnerproject3721.github.io/personal-portfolioSite-Beginner_project-/"
 title = "BYJ_DEV | PORTFOLIO"
 locale = "en"
 
@@ -6,24 +6,12 @@ locale = "en"
 # a custom robots.txt template unless this is explicitly enabled.
 # https://gohugo.io/templates/robots/
 enableRobotsTXT = true
-
-[pagination]
-pagerSize = 3
-
+disableKinds = ["taxonomy", "term", "RSS"]
 
 [outputs]
   page = ["HTML"]
-  home = ["HTML", "RSS", "JSON"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML", "RSS"]
-  term = ["HTML", "RSS"]
-
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  author = "authors"
-  series = "series"
-  topic = "topics"
+  home = ["HTML"]
+  section = ["HTML"]
 
 [module]
 
@@ -97,27 +85,10 @@ siteName = 'BYJ_DEV | PORTFOLIO'
 siteDescription = '게임 개발을 중심으로, AI와 함께 게임, 웹, 앱을 개발하는 BYJ_DEV의 포트폴리오입니다.'
 siteImage = '/img/og-img.png'
 
-[params.social]
-twitter = 'zetxek'
-
 [params.seo.person]
 name = 'BYJ_DEV'
 url = 'https://beginnerproject3721.github.io/personal-portfolioSite-Beginner_project-/'
 sameAs = ['https://github.com/BeginnerProject3721/personal-portfolioSite-Beginner_project-']
-sections = [
-  "showcase",
-  "about",
-  "education",
-  "experience",
-  "client-and-work",
-  "testimonial",
-  "contact",
-  "newsletter",
-]
-# If you want to display an image logo in the header, you can add it here
-# logo = '/img/hugo.svg'
-
-homepageExperienceCount = 6
 
 [params.favicons]
 # Optional: provide a different source image for auto-generation
@@ -266,26 +237,6 @@ mobileHeader = false
 # Set to false to disable the native View Transitions API
 # viewTransitions = false
 
-[params.sharing]
-bluesky = true
-mastodon = true
-
-[params.blog]
-layout = "sidebar-right"     # options: default (no sidebar), sidebar, sidebar-right
-sidebarWidth = "25"    # percentage width of the sidebar
-narrowContent = true   # if true, limits content width to 720px for better readability
-showCategories = true
-showRecentPosts = true
-recentPostCount = 5
-listStyle = "summary"  # options: simple, summary
-listLayout = "default" # options: default, cards
-featured_sort_by_weight = true
-featured_sort_by_date = false
-
-
-[params.experience]
-showJobCard = true # Set to false to hide the job card
-
 # Navbar overflow handling - options: "dropdown" | "footer" | "none"
 [params.navbarOverflow]
 mode = "none" # Keep the simplified navigation visible without a More dropdown
@@ -327,11 +278,3 @@ mode = "none" # Keep the simplified navigation visible without a More dropdown
       precision = 0
     [minify.tdewolff.js]
       precision = 0
-
-[[module.mounts]]
-source = "node_modules/fuse.js/dist/fuse.min.js"
-target = "static/js/fuse.min.js"
-
-[[module.mounts]]
-source = "node_modules/dompurify/dist/purify.min.js"
-target = "static/js/purify.min.js"
