@@ -34,6 +34,7 @@ AI를 개발의 협력 도구로 활용하면서, 프로젝트의 전체 구조�
 
 <div class="work-grid">
 <article class="work-card" tabindex="0" aria-labelledby="long-road-title" aria-describedby="long-road-description">
+<h3 id="long-road-title" class="work-card__title">The Long Road</h3>
 <div class="work-card__visual">
 {{< responsive-image src="images/projects/the-long-road-preview.webp" alt="초원의 길을 걷는 인물과 주변 풍경을 담은 The Long Road 실행 화면" class="work-card__image" sizes="(max-width: 368px) calc(100vw - 48px), 320px" >}}
 <div class="work-card__overlay">
@@ -41,7 +42,6 @@ AI를 개발의 협력 도구로 활용하면서, 프로젝트의 전체 구조�
 <a class="work-card__button" href="{{< relref "/work/the-long-road.md" >}}" aria-label="The Long Road 자세히 보기">자세히 보기 <span aria-hidden="true">↗</span></a>
 </div>
 </div>
-<h3 id="long-road-title" class="work-card__title">The Long Road</h3>
 </article>
 </div>
 

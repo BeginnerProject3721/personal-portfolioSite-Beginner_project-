@@ -128,24 +128,13 @@
   {{- with (templates.Defer (dict "key" "adritian-css-bundle" "data" $cssResources)) }}
   {{- $css := . | resources.Concat "css/bundle.css" }}
   {{- if hugo.IsProduction }}
-    {{- $css = $css | minify | fingerprint }}
+    {{- $css = $css | minify }}
   {{- end }}
+  {{- $css = $css | fingerprint }}
   <link
-    rel="preload"
+    rel="stylesheet"
     href="{{ $css.RelPermalink }}"
-    as="style"
-    onload="this.onload=null;this.rel='stylesheet'"
-    {{ if hugo.IsProduction }}
-      integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous"
-    {{ end }} />
-  <noscript>
-    <link
-      rel="stylesheet"
-      href="{{ $css.RelPermalink }}"
-      {{ if hugo.IsProduction }}
-        integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous"
-      {{ end }} />
-  </noscript>
+    integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous" />
   {{- end }}
 {{- end }}
 {{- range .Site.Params.plugins.scss }}
