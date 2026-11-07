@@ -430,3 +430,76 @@ body {
 }
 .work-detail video { aspect-ratio: 16 / 9; background: #111; }
 .work-detail__gallery img { aspect-ratio: 16 / 9; object-fit: cover; }
+
+/* Keep the making-of readable; technical notes expand without JavaScript. */
+.work-detail__story > h3 {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(127, 127, 127, 0.25);
+  font-size: 1.25rem;
+  font-weight: 650;
+  scroll-margin-top: 7rem;
+}
+.work-detail__story > h3:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border: 0;
+}
+.work-detail__story h4 {
+  margin: 1.75rem 0 0.75rem;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: inherit;
+}
+.work-detail__story p { opacity: 0.9; }
+.work-process-detail {
+  margin-top: 1rem;
+  border-block: 1px solid rgba(127, 127, 127, 0.25);
+}
+.work-process-detail + .work-process-detail {
+  margin-top: 0;
+  border-top: 0;
+}
+.work-process-detail summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.5rem;
+  padding: 1rem 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  list-style: none;
+  cursor: pointer;
+}
+.work-process-detail summary::-webkit-details-marker { display: none; }
+.work-process-detail summary::after {
+  content: "+";
+  font-size: 1.25rem;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+.work-process-detail[open] > summary::after { content: "−"; }
+.work-process-detail summary:hover { background: rgba(127, 127, 127, 0.07); }
+.work-process-detail summary:focus-visible {
+  outline: 2px solid #478079;
+  outline-offset: 3px;
+}
+.work-process-detail > p { margin: 0 0 1.25rem; }
+.work-process-detail .highlight {
+  max-width: 100%;
+  margin-block: 1.25rem;
+}
+.work-process-detail pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1.25rem;
+  border: 1px solid rgba(127, 127, 127, 0.25);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.work-process-detail pre code { white-space: pre; }
