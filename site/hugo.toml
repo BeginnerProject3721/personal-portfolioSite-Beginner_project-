@@ -1,6 +1,8 @@
 baseURL = "https://beginnerproject3721.github.io/personal-portfolioSite-Beginner_project-/"
 title = "BYJ_DEV | PORTFOLIO"
-locale = "en"
+locale = "ko"
+defaultContentLanguage = "ko"
+defaultContentLanguageInSubdir = false
 
 # Required for the theme's layouts/robots.txt to be rendered — Hugo ignores
 # a custom robots.txt template unless this is explicitly enabled.
@@ -146,43 +148,43 @@ header = true
 mobileHeader = true
 
 [languages]
-[languages.en]
+[languages.ko]
 disabled = false
-locale = 'en'
+locale = 'ko'
 direction = 'ltr'
-label = 'English'
+label = '한국어'
 weight = 0
 
-[languages.en.params.footer]
+[languages.ko.params.footer]
 notice = '© Adritian. Free Hugo theme by Adrián Moreno Peña.'
 
-[languages.en.menus]
-[[languages.en.menus.header]]
+[languages.ko.menus]
+[[languages.ko.menus.header]]
 name = "홈"
 URL = "/"
 weight = 1
 
-[[languages.en.menus.header]]
+[[languages.ko.menus.header]]
 name = "소개"
 URL = "/#about"
 weight = 2
 
-[[languages.en.menus.header]]
+[[languages.ko.menus.header]]
 name = "작업물"
 URL = "/#client-and-work-section"
 weight = 3
 
-[[languages.en.menus.footer]]
+[[languages.ko.menus.footer]]
 name = "홈"
 URL = "/"
 weight = 1
 
-[[languages.en.menus.footer]]
+[[languages.ko.menus.footer]]
 name = "소개"
 URL = "/#about"
 weight = 2
 
-[[languages.en.menus.footer]]
+[[languages.ko.menus.footer]]
 name = "작업물"
 URL = "/#client-and-work-section"
 weight = 3
